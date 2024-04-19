@@ -13,17 +13,22 @@ CREATE TABLE Users (
     user_level VARCHAR(10) DEFAULT 'regular'
 );
 
-CREATE TABLE DiaryEntries (
+CREATE TABLE hrvData (
     entry_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    entry_date DATE NOT NULL,
-    mood VARCHAR(50),
-    weight DECIMAL(5,2),
-    sleep_hours INT,
-    notes TEXT,
+    hrvValue INT,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
+CREATE TABLE moodData (
+    entry_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    mood INT,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
 
 CREATE TABLE Medications (
     medication_id INT AUTO_INCREMENT PRIMARY KEY,
