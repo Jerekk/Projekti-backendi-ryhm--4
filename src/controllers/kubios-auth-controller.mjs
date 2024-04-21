@@ -41,6 +41,7 @@ const kubiosLogin = async (username, password) => {
   searchParams.set('username', username);
   searchParams.set('password', password);
   searchParams.set('client_id', process.env.KUBIOS_CLIENT_ID);
+  console.log(process.env.KUBIOS_CLIENT_ID);
   searchParams.set('redirect_uri', process.env.KUBIOS_REDIRECT_URI);
   searchParams.set('response_type', 'token');
   searchParams.set('scope', 'openid');
@@ -59,8 +60,10 @@ const kubiosLogin = async (username, password) => {
     console.error('Kubios login error', err);
     throw customError('Login with Kubios failed', 500);
   }
+  console.log(await response);
+  // Kubios API redirects to the location with the token
   const location = response.headers.raw().location[0];
-  // console.log(location);
+
   // If login fails, location contains 'login?null'
   if (location.includes('login?null')) {
     throw customError(
@@ -136,9 +139,10 @@ const syncWithLocalUser = async (kubiosUser) => {
 */
 const postLogin = async (req, res, next) => {
   const {username, password} = req.body;
-  // console.log('login', req.body);
+  console.log('login', req.body);
   try {
     // Try to login with Kubios
+    console.log(username, password);
     const kubiosIdToken = await kubiosLogin(username, password);
     const kubiosUser = await kubiosUserInfo(kubiosIdToken);
     const localUserId = await syncWithLocalUser(kubiosUser);
@@ -162,6 +166,7 @@ const postLogin = async (req, res, next) => {
     return next(err);
   }
 };
+
 
 /**
 * Get user info based on token
