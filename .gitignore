@@ -1,6 +1,6 @@
 node_modules
 .vscode
-create-db-user-example.sql
+db/create-db-user.sql
 .env
-
+Projekti-backendi-ryhm--4/db/create-db-user.sql
 
