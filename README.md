@@ -133,4 +133,5 @@ DELETE http://localhost:3000/api/entries/:id
 # Kubios requests
 
 GET http://localhost:3000/api/kubios/user-data
+
 GET http://localhost:3000/api/kubios/user-info
