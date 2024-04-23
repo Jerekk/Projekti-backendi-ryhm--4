@@ -129,3 +129,7 @@ content-type: application/json
 # Delete entry
 DELETE http://localhost:3000/api/entries/:id
 ```
+
+# Get data from Kubios
+
+GET http://localhost:3000/api/kubios/user-data
