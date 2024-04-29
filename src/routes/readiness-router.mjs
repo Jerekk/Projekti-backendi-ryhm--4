@@ -2,7 +2,6 @@
 
 import express from 'express';
 import {getReadiness} from '../controllers/readiness-contoller.mjs';
-import { listAllReadiness } from '../models/readiness-model.mjs';
 import {authenticateToken} from '../middlewares/authentication.mjs';
 
 const readinessRouter = express.Router();
@@ -12,6 +11,6 @@ const readinessRouter = express.Router();
 readinessRouter
   .route('/')
   // get info of a user
-  .get(authenticateToken, getReadiness)
+  .get(authenticateToken, getReadiness);
 
 export default readinessRouter;
