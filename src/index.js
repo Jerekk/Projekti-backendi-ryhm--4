@@ -10,6 +10,7 @@ import cors from 'cors';
 import logger from './middlewares/logger.mjs';
 import authRouter from './routes/auth-router.mjs';
 import {errorHandler, notFoundHandler} from './middlewares/error-handler.mjs';
+import hrvRouter from './routes/hrv-router.mjs';
 const hostname = '127.0.0.1';
 const port = 3000;
 const app = express();
@@ -52,6 +53,10 @@ app.use('/api/auth', authRouter);
 
 // Kubios API resource (/api/kubios)
 app.use('/api/kubios', kubiosRouter);
+
+// hrv
+
+app.use('/api/hrv', hrvRouter);
 
 // Default 404 not found
 app.use(notFoundHandler);
