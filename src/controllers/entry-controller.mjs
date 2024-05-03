@@ -28,9 +28,12 @@ const getEntryById = async (req, res, next) => {
 };
 
 const postEntry = async (req, res, next) => {
-  const userId = req.user.user_id;
+  const userId = req.body.user_id;
+  console.log('postEntry', req.body, userId);
   const result = await addEntry(req.body, userId);
+  console.log('postEntry result', result);
   if (result.entry_id) {
+    console.log('postEntry success');
     res.status(201);
     res.json({message: 'New entry added.', ...result});
   } else {
@@ -55,5 +58,6 @@ const deleteEntry = async (req, res, next) => {
   }
   return res.json(result);
 };
+
 
 export {getEntries, getEntryById, postEntry, putEntry, deleteEntry};

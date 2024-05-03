@@ -176,7 +176,7 @@ const postLogin = async (req, res, next) => {
 * @return {object} user info
 */
 const getMe = async (req, res) => {
-  const user = await selectUserById(req.user.userId);
+  const user = await selectUserById(req.user.user_id);
   res.json({user, kubios_token: req.user.kubiosIdToken});
 };
 

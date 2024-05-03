@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import {
   deleteUserById,
   insertUser,
-  listAllUsers,
+  // listAllUsers,
   selectUserById,
   updateUserById,
 } from '../models/user-model.mjs';
@@ -15,7 +15,7 @@ import {customError} from '../middlewares/error-handler.mjs';
  * @param {function} next - next function
  */
 const getUsers = async (req, res, next) => {
-  const result = await listAllUsers();
+  const result = await selectUserById(req.user.user_id);
   if (result.error) {
     return next(customError(result, result.error));
   }
@@ -23,7 +23,8 @@ const getUsers = async (req, res, next) => {
 };
 
 const getUserById = async (req, res, next) => {
-  const result = await selectUserById(req.params.id);
+  // Changed from req.params.id
+  const result = await selectUserById(req.user.user_id);
   if (result.error) {
     return next(customError(result, result.error));
   }

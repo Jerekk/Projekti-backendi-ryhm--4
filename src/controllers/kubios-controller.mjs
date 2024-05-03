@@ -20,6 +20,7 @@ const getUserData = async (req, res, next) => {
   headers.append('Authorization', kubiosIdToken);
 
   const response = await fetch(
+
     // TODO: set the from date in request parameters
 
     baseUrl + '/result/self?from=2022-01-01T00%3A00%3A00%2B00%3A00',

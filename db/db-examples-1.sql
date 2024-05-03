@@ -105,3 +105,4 @@ UPDATE DiaryEntries SET mood = 'Outstanding' WHERE entry_id = 1;
 
 -- Delete a diary entry
 DELETE FROM DiaryEntries WHERE entry_id = 2;
+

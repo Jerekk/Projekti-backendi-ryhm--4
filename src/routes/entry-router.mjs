@@ -18,7 +18,7 @@ entryRouter
   .post(
     authenticateToken,
     body('entry_date').isDate(),
-    body('mood').optional().trim().isLength({min: 3, max: 20}).isString(),
+    body('mood').optional().isInt({min: 1, max: 10}),
     body('weight').optional().isFloat({min: 30, max: 200}),
     body('sleep_hours').optional().isInt({min: 0, max: 24}),
     body('notes').optional().isString().isLength({min: 3, max: 300}),
@@ -40,7 +40,7 @@ entryRouter
     // user_id is not allowed to be changed
     body('user_id', 'not allowed').not().exists(),
     body('entry_date').optional().isDate(),
-    body('mood').optional().trim().isLength({min: 3, max: 20}).isString(),
+    body('mood').isInt({min: 1, max: 5}).withMessage('between 1 and 5'),
     body('weight').optional().isFloat({min: 30, max: 200}),
     body('sleep_hours').optional().isInt({min: 0, max: 24}),
     body('notes').optional().isString().isLength({min: 3, max: 300}),
