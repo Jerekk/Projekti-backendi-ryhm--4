@@ -40,8 +40,9 @@ const findEntryById = async (id, userId) => {
 
 const addEntry = async (entry, userId) => {
   const sql = `INSERT INTO DiaryEntries
-               (user_id, entry_date, mood, weight, sleep_hours, notes)
-               VALUES (?, ?, ?, ?, ?, ?)`;
+               (user_id, entry_date, mood, weight, sleep_hours,
+                notes, exercise_duration)
+               VALUES (?, ?, ?, ?, ?, ?, ?)`;
   const params = [
     userId,
     entry.entry_date,
@@ -49,6 +50,7 @@ const addEntry = async (entry, userId) => {
     entry.weight,
     entry.sleep_hours,
     entry.notes,
+    entry.exercise_duration,
   ];
   try {
     const rows = await promisePool.query(sql, params);

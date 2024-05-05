@@ -44,6 +44,7 @@ entryRouter
     body('weight').optional().isFloat({min: 30, max: 200}),
     body('sleep_hours').optional().isInt({min: 0, max: 24}),
     body('notes').optional().isString().isLength({min: 3, max: 300}),
+    body('exercise_duration').optional().isInt({min: 0, max: 600}),
     validationErrorHandler,
     putEntry,
   )

@@ -39,6 +39,7 @@ INSERT INTO Users (username, password, email, created_at, user_level) VALUES
 INSERT INTO DiaryEntries (user_id, entry_date, mood, weight, sleep_hours, notes, created_at) VALUES
   (15, '2024-01-10', 'Happy', 70.5, 8, 'Had a great day, felt energetic', '2024-01-10 20:00:00');
 
+-- ALTER TABLE DiaryEntries ADD COLUMN exercise_duration INT DEFAULT 0;  Tehty muutos databaseen
 -- Inserting multiple diary entries
 INSERT INTO DiaryEntries (user_id, entry_date, mood, weight, sleep_hours, notes, created_at) VALUES
   (1, '2024-01-10', 'Happy', 70.5, 8, 'Had a great day, felt energetic', '2024-01-10 20:00:00'),
