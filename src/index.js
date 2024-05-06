@@ -28,16 +28,16 @@ app.use(logger);
 app.use(express.json());
 
 // Middleware to log the request body
-app.use((req, res, next) => {
-  console.log('Request body:', req.body);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log('Request body:', req.body);
+//   next();
+// });
 
-app.use((req, res, next) => {
-  console.log('Mood value:', req.body.mood);
-  console.log('Type of mood value:', typeof req.body.mood);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log('Mood value:', req.body.mood);
+//   console.log('Type of mood value:', typeof req.body.mood);
+//   next();
+// });
 
 // Staattinen sivusto palvelimen juureen (public-kansion sisältö näkyy osoitteessa http://127.0.0.1:3000/sivu.html)
 // Voit sijoittaa esim. valmiin client-sovelluksen tähän kansioon

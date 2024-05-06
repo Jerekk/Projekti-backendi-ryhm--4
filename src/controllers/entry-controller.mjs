@@ -11,7 +11,7 @@ const getEntries = async (req, res, next) => {
   // return only logged in user's own entries
   // - get user's id from token (req.user.user_id)
   const result = await listAllEntriesByUserId(req.user.user_id);
-  console.log('user_id', req.user.user_id, result);
+  // console.log('user_id', req.user.user_id, result);
   if (!result.error) {
     res.json(result);
   } else {

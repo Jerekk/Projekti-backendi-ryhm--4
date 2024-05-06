@@ -139,10 +139,10 @@ const syncWithLocalUser = async (kubiosUser) => {
 */
 const postLogin = async (req, res, next) => {
   const {username, password} = req.body;
-  console.log('login', req.body);
+  // console.log('login', req.body);
   try {
     // Try to login with Kubios
-    console.log(username, password);
+    // console.log(username, password);
     const kubiosIdToken = await kubiosLogin(username, password);
     const kubiosUser = await kubiosUserInfo(kubiosIdToken);
     const localUserId = await syncWithLocalUser(kubiosUser);
