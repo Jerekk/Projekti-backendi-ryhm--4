@@ -21,7 +21,7 @@ entryRouter
     body('mood').optional().isInt({min: 1, max: 10}),
     body('weight').optional().isFloat({min: 30, max: 200}),
     body('sleep_hours').optional().isInt({min: 0, max: 24}),
-    body('notes').optional().isString().isLength({min: 3, max: 300}),
+    body('notes').optional().isString().isLength({min: 3, max: 3000}),
     validationErrorHandler,
     postEntry,
   );
@@ -43,7 +43,7 @@ entryRouter
     body('mood').isInt({min: 1, max: 5}).withMessage('between 1 and 5'),
     body('weight').optional().isFloat({min: 30, max: 200}),
     body('sleep_hours').optional().isInt({min: 0, max: 24}),
-    body('notes').optional().isString().isLength({min: 3, max: 300}),
+    body('notes').optional().isString().isLength({min: 3, max: 3000}),
     body('exercise_duration').optional().isInt({min: 0, max: 600}),
     validationErrorHandler,
     putEntry,
